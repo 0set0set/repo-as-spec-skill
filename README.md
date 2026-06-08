@@ -1,81 +1,54 @@
 # repo-as-spec
 
-[![Skill](https://img.shields.io/badge/Agent-Skill-blue.svg)](https://agents.md/)
-[![Version](https://img.shields.io/badge/version-0.1.0-informational.svg)](CHANGELOG.md)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+A portable, harness-agnostic [Agent Skill](https://agentskills.io) that turns
+**any repository into a "repository as spec"** workspace: a place where an AI
+agent can answer every key question from the repo alone, without asking a human.
 
-A portable, harness-agnostic Agent Skill that turns **any repository into a
-"repository as spec"** workspace: a place where an AI agent can answer every key
-question from the repo alone, without asking a human.
+This repository is the distributable package for the skill. The skill itself
+lives in [`skills/repo-as-spec/`](skills/repo-as-spec/).
 
-An agent only sees three things: its prompt, repository file contents, and tool
-output. Knowledge in Slack, Confluence, tickets, or people's heads does not
-exist for it. This skill audits a repo for missing knowledge and writes that
-knowledge into the right files, close to the code it governs.
+## Install
 
-## What it does
+```bash
+# Latest from the default branch
+npx skills add 0set0set/repo-as-spec
 
-Given a target repository, an agent using this skill will:
+# Pin to a released tag (reproducible)
+npx skills add https://github.com/0set0set/repo-as-spec/tree/v0.1.0/skills/repo-as-spec
+```
 
-1. **Discover** existing knowledge (agent files, CI, quality gates, docs, structure).
-2. **Audit** with the fresh session test — can the repo alone answer: what is
-   this / how is it organized / how do I run it / how do I verify it / where are we?
-3. **Resolve gaps** — derive what it can from the repo, and ask the user for
-   human-only decisions instead of guessing.
-4. **Write the map** — a short root `AGENTS.md`, co-located `ARCHITECTURE.md` /
-   `CONSTRAINTS.md`, and durable state (`PROGRESS.md`, `DECISIONS.md` / ADRs).
-5. **Verify** by re-running the fresh session test and the repo's real checks.
-6. **Report** what changed, gaps left, and decay controls.
+`npx skills` ([vercel-labs/skills](https://github.com/vercel-labs/skills))
+auto-detects your harness and installs into the right directory
+(`.cursor/skills/`, `.claude/skills/`, `.codex/skills/`, and many more).
 
-## Works with any harness
+Manual install (no CLI): copy `skills/repo-as-spec/` into your harness skills
+directory. See [`skills/repo-as-spec/INSTALL.md`](skills/repo-as-spec/INSTALL.md).
 
-This is a plain-Markdown Agent Skill ([agents.md](https://agents.md) /
-[agentskills.io](https://agentskills.io) conventions). It is not tied to any
-single tool. See [INSTALL.md](INSTALL.md) for per-harness setup:
+## What the skill does
 
-- Claude Code / Claude — `.claude/skills/`
-- Cursor — `.cursor/skills/`
-- Codex / AGENTS.md harnesses — `.agents/skills/` or reference from `AGENTS.md`
-- Windsurf, OpenCode, and other agents that read Markdown skills
+Given a target repository, an agent using this skill will discover existing
+knowledge, run a fresh-session audit, resolve gaps (asking the user for
+human-only decisions), write a minimal map of co-located docs, verify with the
+repo's real checks, and report. Full workflow:
+[`skills/repo-as-spec/SKILL.md`](skills/repo-as-spec/SKILL.md).
 
-## Structure
+## Repository layout
 
 ```
 repo-as-spec/
-├── SKILL.md            # Entry point: metadata + the 6-step workflow
-├── references/         # Loaded on demand (progressive disclosure)
-│   ├── reference.md    # Theory + detailed discovery method
-│   ├── templates.md    # Copy-ready AGENTS.md / ARCHITECTURE.md / etc.
-│   └── checklists.md   # Fresh session test, gap audit, ACID, verification
-├── AGENTS.md           # Map for contributors editing this skill repo
-├── INSTALL.md          # Install across harnesses
-├── CONTRIBUTING.md     # How to contribute and author changes
-├── CHANGELOG.md        # Versioned history (SemVer + Keep a Changelog)
-└── LICENSE             # MIT
+├── skills/repo-as-spec/        # the skill (SKILL.md + references/ + docs)
+├── scripts/sync-skill-version.mjs
+├── .releaserc.json             # semantic-release config
+├── .github/workflows/release.yml
+├── package.json
+└── LICENSE
 ```
 
-## Usage
+## Releases and versioning
 
-In any harness that has loaded the skill, ask it to apply `repo-as-spec`
-to the current repository (or invoke by name where supported). The skill drives
-the audit-and-transform workflow and asks you for any human-only knowledge it
-cannot derive from the repo.
-
-## Versioning
-
-This skill follows [Semantic Versioning](https://semver.org/). The current
-version lives in `SKILL.md` frontmatter (`metadata.version`) and in
-[CHANGELOG.md](CHANGELOG.md).
-
-## Credits and references
-
-Built on the "repo as spec" / system-of-record ideas from:
-
-- OpenAI — Harness Engineering (repo as spec, progressive disclosure, AGENTS.md
-  as a table of contents).
-- Anthropic — Effective harnesses for long-running agents (persistent state,
-  handoff files, clean state, incremental progress).
-- The [AGENTS.md](https://agents.md) open standard and ADR/MADR practices.
+Version history lives in [`skills/repo-as-spec/CHANGELOG.md`](skills/repo-as-spec/CHANGELOG.md).
+Contributors: see [`CONTRIBUTING.md`](skills/repo-as-spec/CONTRIBUTING.md) for commit
+conventions.
 
 ## License
 

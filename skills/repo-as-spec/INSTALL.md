@@ -1,12 +1,30 @@
 # Installing repo-as-spec
 
 This is a plain-Markdown Agent Skill: a folder with a `SKILL.md` plus
-`references/`. There is no universal auto-installer standard across tools yet,
-so install by copying (or symlinking) this folder into your harness's skills
-directory. The folder name must stay `repo-as-spec` (it must match the
+`references/`. The folder name must stay `repo-as-spec` (it must match the
 `name` in `SKILL.md`).
 
-## Common install paths
+## Quick install (recommended)
+
+Use the `npx skills` CLI ([vercel-labs/skills](https://github.com/vercel-labs/skills)).
+It auto-detects your harness and copies the skill into the right directory.
+
+```bash
+# Latest from the default branch
+npx skills add 0set0set/repo-as-spec
+
+# Pin to a released tag for reproducibility
+npx skills add https://github.com/0set0set/repo-as-spec/tree/v0.1.0/skills/repo-as-spec
+```
+
+Then restart or reload the harness so it discovers the skill.
+
+## Manual install (fallback)
+
+If you cannot run the CLI, copy (or symlink) the skill folder into your
+harness's skills directory.
+
+### Common install paths
 
 | Harness | Skills directory |
 |---------|------------------|

@@ -1,0 +1,44 @@
+{
+  "name": "repo-as-spec",
+  "version": "0.1.0",
+  "description": "Agent Skill that turns any repository into a repository-as-spec workspace. Distributed for npx skills add and released via semantic-release.",
+  "license": "MIT",
+  "type": "module",
+  "keywords": [
+    "agent-skill",
+    "skill",
+    "agents.md",
+    "repository-as-spec",
+    "ai-agents"
+  ],
+  "homepage": "https://github.com/0set0set/repo-as-spec#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/0set0set/repo-as-spec.git"
+  },
+  "bugs": {
+    "url": "https://github.com/0set0set/repo-as-spec/issues"
+  },
+  "files": [
+    "skills",
+    "README.md",
+    "LICENSE"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "scripts": {
+    "release": "semantic-release",
+    "release:dry": "semantic-release --dry-run --no-ci"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "devDependencies": {
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/exec": "^7.0.3",
+    "@semantic-release/git": "^10.0.1",
+    "semantic-release": "^24.2.0"
+  }
+}
