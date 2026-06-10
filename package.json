@@ -1,0 +1,52 @@
+{
+  "name": "repo-as-spec",
+  "version": "1.1.2",
+  "description": "Agent Skill that turns any repository into a repository-as-spec workspace. Distributed for npx skills add and released via semantic-release.",
+  "license": "MIT",
+  "type": "module",
+  "keywords": [
+    "agent-skill",
+    "skill",
+    "agents.md",
+    "repository-as-spec",
+    "ai-agents"
+  ],
+  "homepage": "https://github.com/0set0set/repo-as-spec-skill#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/0set0set/repo-as-spec-skill.git"
+  },
+  "bugs": {
+    "url": "https://github.com/0set0set/repo-as-spec-skill/issues"
+  },
+  "files": [
+    "skills",
+    "README.md",
+    "LICENSE"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.mjs",
+    "check:version": "node scripts/check-version.mjs",
+    "check:frontmatter": "node scripts/check-frontmatter.mjs",
+    "check:links": "node scripts/check-links.mjs",
+    "check:skill-size": "node scripts/check-skill-size.mjs",
+    "check:references": "node scripts/check-references.mjs",
+    "check": "npm run test && npm run check:version && npm run check:frontmatter && npm run check:links && npm run check:skill-size && npm run check:references",
+    "prepublishOnly": "npm run check",
+    "release": "semantic-release",
+    "release:dry": "semantic-release --dry-run --no-ci"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "packageManager": "npm@11.12.1",
+  "devDependencies": {
+    "@semantic-release/changelog": "6.0.3",
+    "@semantic-release/exec": "7.1.0",
+    "@semantic-release/git": "10.0.1",
+    "semantic-release": "25.0.3"
+  }
+}

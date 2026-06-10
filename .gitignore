@@ -1,0 +1,11 @@
+# Node tooling
+node_modules/
+.npm-cache/
+
+# Test / coverage output
+coverage/
+*.tgz
+
+# OS / editor noise
+.DS_Store
+*.log
