@@ -14,7 +14,7 @@ It auto-detects your harness and copies the skill into the right directory.
 npx skills add 0set0set/repo-as-spec-skill
 
 # Pin to a released tag for reproducibility
-npx skills add https://github.com/0set0set/repo-as-spec-skill/tree/v1.1.2/skills/repo-as-spec
+npx skills add https://github.com/0set0set/repo-as-spec-skill/tree/v1.0.0/skills/repo-as-spec
 ```
 
 Then restart or reload the harness so it discovers the skill.

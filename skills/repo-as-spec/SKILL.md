@@ -3,7 +3,7 @@ name: repo-as-spec
 description: Transform any repository into a "repository as spec" workspace for AI agents by auditing what knowledge is missing and writing it into discoverable, co-located files (AGENTS.md, ARCHITECTURE.md, CONSTRAINTS.md, DECISIONS.md, PROGRESS.md, verification gates). Use when the user wants to make a repo the single source of truth, run a fresh-session/repo-as-spec audit, reduce the knowledge visibility gap, set up an agent harness, or onboard agents to a codebase.
 license: MIT
 metadata:
-  version: 1.1.2
+  version: 1.0.0
   author: repo-as-spec contributors
 ---
 

@@ -1,7 +1,7 @@
 # repo-as-spec
 
 [![Skill](https://img.shields.io/badge/Agent-Skill-blue.svg)](https://agents.md/)
-[![Version](https://img.shields.io/badge/version-1.1.2-informational.svg)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-1.0.0-informational.svg)](CHANGELOG.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 A portable, harness-agnostic Agent Skill that turns **any repository into a

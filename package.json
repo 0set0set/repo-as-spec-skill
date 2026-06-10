@@ -1,6 +1,6 @@
 {
   "name": "repo-as-spec",
-  "version": "1.1.2",
+  "version": "1.0.0",
   "description": "Agent Skill that turns any repository into a repository-as-spec workspace. Distributed for npx skills add and released via semantic-release.",
   "license": "MIT",
   "type": "module",

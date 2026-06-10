@@ -14,7 +14,7 @@ lives in [`skills/repo-as-spec/`](skills/repo-as-spec/).
 npx skills add 0set0set/repo-as-spec-skill
 
 # Pin to a released tag (reproducible)
-npx skills add https://github.com/0set0set/repo-as-spec-skill/tree/v1.1.2/skills/repo-as-spec
+npx skills add https://github.com/0set0set/repo-as-spec-skill/tree/v1.0.0/skills/repo-as-spec
 ```
 
 `npx skills` ([vercel-labs/skills](https://github.com/vercel-labs/skills))
